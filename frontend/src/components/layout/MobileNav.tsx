@@ -1,13 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, CreditCard, Wallet, TrendingUp, BarChart3 } from 'lucide-react';
+import { LayoutDashboard, CreditCard, TrendingUp, Lightbulb, Settings } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 const NAV_ITEMS = [
   { icon: LayoutDashboard, label: 'Home', to: '/' },
   { icon: CreditCard, label: 'Txns', to: '/transactions' },
   { icon: TrendingUp, label: 'Budgets', to: '/budgets' },
-  { icon: Wallet, label: 'Accounts', to: '/accounts' },
-  { icon: BarChart3, label: 'Analytics', to: '/analytics' },
+  { icon: Lightbulb, label: 'Insights', to: '/insights' },
+  { icon: Settings, label: 'Settings', to: '/settings' },
 ];
 
 export function MobileNav() {

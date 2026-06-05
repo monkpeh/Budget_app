@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { RefreshCw } from 'lucide-react';
 import api from '../lib/api';
 import { NetWorthCard } from '../components/dashboard/NetWorthCard';
@@ -7,9 +7,9 @@ import { SpendingDonut } from '../components/dashboard/SpendingDonut';
 import { BudgetHealth } from '../components/dashboard/BudgetHealth';
 import { RecentTransactions } from '../components/dashboard/RecentTransactions';
 import { AccountsOverview } from '../components/dashboard/AccountsOverview';
+import { SpendingInsights } from '../components/insights/SpendingInsights';
 import { Button } from '../components/ui/Button';
 import { format } from 'date-fns';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export function DashboardPage() {
   const queryClient = useQueryClient();
@@ -69,6 +69,9 @@ export function DashboardPage() {
           <AccountsOverview data={data?.accounts} loading={isLoading} />
         </div>
       </div>
+
+      {/* AI Insights preview */}
+      <SpendingInsights />
     </div>
   );
 }

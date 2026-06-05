@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, CreditCard, Wallet, BarChart3, Settings,
-  LogOut, TrendingUp, ChevronRight,
+  LogOut, TrendingUp, ChevronRight, Lightbulb,
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { useAuth } from '../../hooks/useAuth';
@@ -15,6 +15,7 @@ const NAV_ITEMS = [
   { icon: Wallet, label: 'Accounts', to: '/accounts' },
   { icon: TrendingUp, label: 'Budgets', to: '/budgets' },
   { icon: BarChart3, label: 'Analytics', to: '/analytics' },
+  { icon: Lightbulb, label: 'Insights', to: '/insights' },
 ];
 
 export function Sidebar() {
@@ -92,10 +93,10 @@ export function Sidebar() {
 
       {/* User section */}
       <div className="px-3 py-3 border-t border-white/[0.06] space-y-0.5">
-        <button className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-white/40 hover:text-white/70 hover:bg-white/[0.04] transition-all text-sm">
+        <NavLink to="/settings" className={({ isActive }) => `w-full flex items-center gap-2.5 px-3 py-2 rounded-lg transition-all text-sm ${isActive ? 'text-white/70 bg-white/[0.04]' : 'text-white/40 hover:text-white/70 hover:bg-white/[0.04]'}`}>
           <Settings size={15} />
           <span>Settings</span>
-        </button>
+        </NavLink>
         <button
           onClick={handleLogout}
           className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-white/40 hover:text-negative/80 hover:bg-negative/5 transition-all text-sm"
