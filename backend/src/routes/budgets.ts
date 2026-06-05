@@ -106,7 +106,7 @@ router.get('/history', async (req: AuthRequest, res: Response) => {
   try {
     const userBudgets = await db.select().from(budgets).where(eq(budgets.userId, req.userId!));
     const now = new Date();
-    const months = [];
+    const months: Array<{ label: string; start: string; end: string; byCategory: Record<string, number> }> = [];
 
     for (let i = 5; i >= 0; i--) {
       const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
