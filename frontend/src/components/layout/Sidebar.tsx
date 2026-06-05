@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, CreditCard, Wallet, BarChart3, Settings,
-  LogOut, TrendingUp, Lock, ChevronRight, RefreshCw,
+  LogOut, TrendingUp, ChevronRight,
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { useAuth } from '../../hooks/useAuth';
@@ -12,9 +12,9 @@ import { formatCurrency } from '../../lib/utils';
 const NAV_ITEMS = [
   { icon: LayoutDashboard, label: 'Dashboard', to: '/' },
   { icon: CreditCard, label: 'Transactions', to: '/transactions' },
-  { icon: Wallet, label: 'Accounts', to: '/accounts', locked: true },
-  { icon: TrendingUp, label: 'Budgets', to: '/budgets', locked: true },
-  { icon: BarChart3, label: 'Analytics', to: '/analytics', locked: true },
+  { icon: Wallet, label: 'Accounts', to: '/accounts' },
+  { icon: TrendingUp, label: 'Budgets', to: '/budgets' },
+  { icon: BarChart3, label: 'Analytics', to: '/analytics' },
 ];
 
 export function Sidebar() {
@@ -45,17 +45,7 @@ export function Sidebar() {
 
       {/* Navigation */}
       <nav className="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
-        {NAV_ITEMS.map(({ icon: Icon, label, to, locked }) => (
-          locked ? (
-            <div
-              key={to}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-white/25 cursor-not-allowed"
-            >
-              <Icon size={16} />
-              <span className="text-sm">{label}</span>
-              <Lock size={10} className="ml-auto" />
-            </div>
-          ) : (
+        {NAV_ITEMS.map(({ icon: Icon, label, to }) => (
             <NavLink
               key={to}
               to={to}
@@ -75,7 +65,6 @@ export function Sidebar() {
                 </>
               )}
             </NavLink>
-          )
         ))}
 
         {/* Accounts section */}

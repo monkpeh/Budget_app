@@ -6,6 +6,9 @@ import { LoginPage } from './pages/auth/LoginPage';
 import { RegisterPage } from './pages/auth/RegisterPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { TransactionsPage } from './pages/TransactionsPage';
+import { BudgetsPage } from './pages/BudgetsPage';
+import { AccountsPage } from './pages/AccountsPage';
+import { AnalyticsPage } from './pages/AnalyticsPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,6 +41,9 @@ export default function App() {
           <Route element={<AuthGuard><AppLayout /></AuthGuard>}>
             <Route path="/" element={<DashboardPage />} />
             <Route path="/transactions" element={<TransactionsPage />} />
+            <Route path="/budgets" element={<BudgetsPage />} />
+            <Route path="/accounts" element={<AccountsPage />} />
+            <Route path="/analytics" element={<AnalyticsPage />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
